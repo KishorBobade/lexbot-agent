@@ -47,3 +47,9 @@ for role, msg in st.session_state.messages:
         st.chat_message("user").write(msg)
     else:
         st.chat_message("assistant").write(msg)
+from pypdf import PdfReader
+
+reader = PdfReader(file_path)
+
+if reader.is_encrypted:
+    reader.decrypt("")  # try empty password
